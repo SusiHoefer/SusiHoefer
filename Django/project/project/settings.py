@@ -123,6 +123,10 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-STATICFILES_DIRS = [
+STATICFILES_DIRS = [        #file direction for static files
     BASE_DIR / "static"
 ]
+
+
+MEDIA_URL = "/images/"
+MEDIA_ROOT = BASE_DIR / "static/images"  #images go into the static file folder
