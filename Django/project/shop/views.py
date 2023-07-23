@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from . models import * #imports every model
+from django.http import JsonResponse 
 # Create your views here. 
 #functions expect request and direct the incoming request to the requested html-file
 def shop(request):
@@ -19,7 +20,19 @@ def basket(request):
     return render(request, 'shop/basket.html',context)
 
 def checkout(request):
-    return render(request, 'shop/checkout.html')
+    if request.user.is_authenticated:
+        customer = request.user.customer
+        order, created = Order.objects.get_or_create(customer=customer, done = False)
+        articles = order.orderedarticle_set.all()
+    else:
+        articles = []
+        order = []
+    context = {'articles':articles, 'order':order}  
+    return render(request, 'shop/checkout.html',context)
+
+def articleBackend(request):
+    return JsonResponse("Article added to shopping cart", safe=False)
+
 
 def imprint(request):
     return render(request, 'shop/imprint.html')

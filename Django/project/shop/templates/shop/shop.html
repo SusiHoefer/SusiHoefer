@@ -16,7 +16,7 @@
               <h5 class="card-title">{{article.name}}</h5>
               <p class="card-text">{{article.description}}</p>
               <p class="card-text">{{article.price}} €</p>
-              <a href="#" class="btn btn-primary">Add to shopping cart</a>
+              <button data-article="{{article.id}}" data-action="order" class="btn btn-primary basket-button">Add to shopping cart</button> <!--data-X = eigenes html attribut, data-article = requests the current article.id, data-action = button shall trigger the current article with the "order"-action   -->
             </div>
           </div>
         </div>

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Created with the help of Udemys DJango Tutorial: Fabian Heilhoff: Django- Der Umfangreiche Einsteigerkurs zur Webentwicklung. URL: https://www.udemy.com/course/django-grundkurs/ [20.07.2023] -->
 <html lang="en">
 <head>
     {% load static %}
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shop</title>    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-    <!-- Created with the help of Udemys DJango Tutorial: Fabian Heilhoff: Django- Der Umfangreiche Einsteigerkurs zur Webentwicklung. URL: https://www.udemy.com/course/django-grundkurs/ [20.07.2023] -->
+    <script>let benutzer = '{{request.user}}' </script>
 </head>
 <body>
     {% include 'shop/menu.html' %}
@@ -16,5 +17,6 @@
         {% endblock content %}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <script src="{% static 'js/basket.js' %}"></script>
 </body>
 </html>

@@ -29,10 +29,16 @@ class Order(models.Model):
         return str(self.id)
     
     @property
-    def get_total(self):
+    def get_total_price(self):
         orderedarticles = self.orderedarticle_set.all()
         total = sum(article.get_sum for article in orderedarticles)
         return total
+    
+    @property
+    def get_total_quantity(self):
+        orderedarticles = self.orderedarticle_set.all()
+        totalquantity = sum(article.quantity for article in orderedarticles)
+        return totalquantity
 
 class OrderedArticle(models.Model):
     article = models.ForeignKey(Article, on_delete=models.SET_NULL, null=True, blank =True)

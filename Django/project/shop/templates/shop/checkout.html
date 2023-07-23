@@ -6,16 +6,17 @@
         <div class="shadow p-4">
             <h3>Order Overview</h3>
             <hr>
+            {% for article in articles %}
             <div class="d-flex">
-                <p class="p-2">1</p>
-                <p class="me-auto p-2 fw-bold">Minolta-Camera</p>
-                <p class="p-2">30€</p>
+                <p class="p-2">{{article.quantity}}</p>
+                <p class="me-auto p-2 fw-bold">{{article.article.name}}</p>
+                <p class="fw-bold p-2">{{article.get_sum}}</p>
             </div>
+            {% endfor %}
             <hr>
             <div class="d-flex">
-                <p class="p-2">1</p>
-                <p class="me-auto p-2 fw-bold">Quantity: 1</p>
-                <p class="p-2">Total: 30€</p>
+                <p class="me-auto p-2 fw-bold">Quantity: {{order.get_total_quantity}} </p>
+                <p class="p-2">Total: {{order.get_total_price}}€</p>
             </div>
         </div>
     </div>
