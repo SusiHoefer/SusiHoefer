@@ -7,7 +7,7 @@
         <div class="shadow p-2 mb-4">
             <div class="d-flex justify-content-end">
               <h2 class="me-auto">Shopping Cart</h2>
-                <p class="fw-bold p-2">Total</p>
+                <p class="fw-bold p-2">Total </p>
                 <p><a class="btn btn-danger" href="{% url 'checkout' %}">Checkout</a></p>
             </div>
         </div>
@@ -22,6 +22,7 @@
                     <th scope="col">Article</th>
                     <th scope="col">Quantity</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Total</th>
                   </tr>
                 </thead>
                 <tbody class="table-group-divider">
@@ -32,6 +33,7 @@
                     <td>{{article.article.name}}</td>
                     <td>{{article.quantity}}</td>
                     <td>{{article.article.price}}€</td>
+                    <td>{{article.get_sum}}€</td>
                   </tr>
                   {% endfor %}
                 </tbody>

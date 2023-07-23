@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from . models import * #imports every model
 # Create your views here. 
-#functions expect request and direct to the requested html-file
+#functions expect request and direct the incoming request to the requested html-file
 def shop(request):
     articles = Article.objects.all()
-    context = {'articles': articles}
+    context = {'articles': articles}                    #context hands over a dictionary for the view to use in the render process to work and "display" it properly on the website in the way it shall "display it"
     return render(request, 'shop/shop.html', context)
 
 def basket(request):
@@ -14,7 +14,8 @@ def basket(request):
         articles = order.orderedarticle_set.all()
     else:
         articles = []
-    context = {'articles':articles}
+        order = []
+    context = {'articles':articles, 'order':order}  
     return render(request, 'shop/basket.html',context)
 
 def checkout(request):

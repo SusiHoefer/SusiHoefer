@@ -27,6 +27,12 @@ class Order(models.Model):
     
     def __str__(self):
         return str(self.id)
+    
+    @property
+    def get_total(self):
+        orderedarticles = self.orderedarticle_set.all()
+        total = sum(article.get_sum for article in orderedarticles)
+        return total
 
 class OrderedArticle(models.Model):
     article = models.ForeignKey(Article, on_delete=models.SET_NULL, null=True, blank =True)
@@ -36,6 +42,11 @@ class OrderedArticle(models.Model):
 
     def __str__(self):
         return self.article.name
+    
+    @property                           #adds further functionalities to the model, here: Total of single prices
+    def get_sum(self):
+        sum = self.article.price * self.quantity
+        return sum
     
 class Adress(models.Model):
     customer = models.ForeignKey(Customer, on_delete= models.SET_NULL, null=True, blank=True)
