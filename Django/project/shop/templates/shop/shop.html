@@ -1,4 +1,4 @@
-{% extends 'shop/index.html' %}
+{% extends 'shop/index.html' %}  <!--adds the default/parent template to the current one-->
 {% load static %}
 
 {% block content %}
@@ -7,7 +7,7 @@
     <div class="col mb-4">
         <div>&nbsp;</div>
         <div class="card mb-4" style="max-width: 25rem;">
-          {% if article.image %}
+          {% if article.image %} 
             <img src= "{{article.image.url}}" class="card-img-top" alt="...">
           {% else %}
             <img src= "{% static 'images/dummy.png' %}" class="card-img-top" alt="...">

@@ -28,7 +28,7 @@ class Order(models.Model):
     def __str__(self):
         return str(self.id)
     
-    @property
+    @property                   #creates and returns a property object, which is called automatically
     def get_total_price(self):
         orderedarticles = self.orderedarticle_set.all()
         total = sum(article.get_sum for article in orderedarticles)

@@ -1,7 +1,7 @@
 from django.urls import path
 from . import views
 
-urlpatterns = [
+urlpatterns = [                             #define the url paths where the views shall be shown (+ which view shall be shown)
     path('', views.shop, name='shop'),
     path('basket/', views.basket, name='basket'),
     path('checkout/', views.checkout, name='checkout'),
